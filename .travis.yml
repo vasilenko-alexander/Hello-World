@@ -34,6 +34,7 @@ install:
 
 script:
     # скрипт сборки и тестирования проекта:
+    - source ci/travis/set-env.sh
     - bash ci/travis/install-$TRAVIS_OS_NAME.sh
 
 deploy:
