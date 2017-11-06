@@ -34,8 +34,7 @@ install:
 
 script:
     # скрипт сборки и тестирования проекта:
-    - source ci/travis/install-linux.sh
-    - source ci/travis/install-macos.sh
+    - bash ci/travis/install-$TRAVIS_OS_NAME.sh
 
 deploy:
     # выкладываем tagged-коммиты на GitHub Releases:
