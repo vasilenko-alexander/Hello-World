@@ -34,11 +34,8 @@ install:
 
 script:
     # скрипт сборки и тестирования проекта:
-    - mkdir build
-    - cd build
-    - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION -DTARGET_CPU=$TARGET_CPU
-    - cmake --build .
-    - ctest --output-on-failure
+    - source ci/travis/install-linux.sh
+    - source ci/travis/install-macos.sh
 
 deploy:
     # выкладываем tagged-коммиты на GitHub Releases:
