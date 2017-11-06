@@ -13,10 +13,9 @@ matrix:
     fast_finish: false           # не останавливаемся после возникновения ошибки в каком-то из заданий
 
 platform:
-    # будем гонять CI на amd64 и x86...
+    # будем гонять CI на amd64
     - x64
-    - x86
-
+    
 configuration:
     # ... и в дебажной, и в релизной конфигурациях ...
     - Debug
@@ -24,9 +23,7 @@ configuration:
 
 environment:
     matrix:
-        # ... на трёх студиях (2010, 2012, 2015)
-        - TOOLCHAIN: msvc10
-        - TOOLCHAIN: msvc12
+        # ... на 2015
         - TOOLCHAIN: msvc14
 
 install:
