@@ -17,6 +17,11 @@ before_build:
 
 build:
   project: $(APPVEYOR_BUILD_FOLDER)\$(APPVEYOR_PROJECT_NAME).sln
+  
+build_script:
+    # скрипт сборки проекта:
+    - mkdir build
+    - cd build
+    - cmake .. %CMAKE_CONFIGURE_FLAGS%     # содержит нужный CMake-генератор
+    - cmake --build . %CMAKE_BUILD_FLAGS%  # задаёт конфигурацию Debug/Release
 
-test_script:
-  - '%APPVEYOR_BUILD_FOLDER%\%CONFIGURATION%\tests.exe'
