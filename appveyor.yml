@@ -38,8 +38,11 @@ build_script:
     - cmake .. %CMAKE_CONFIGURE_FLAGS%     # содержит нужный CMake-генератор
     - cmake --build . %CMAKE_BUILD_FLAGS%  # задаёт конфигурацию Debug/Release
 
+after_build:
+  - dir build\stage\%APPVEYOR_REPO_NAME%\releases\download\%APPVEYOR_REPO_TAG_NAME%
+  
 artifacts:
-    - path: <local-package-path>
-      name: package_name
+  - path: build/stage/$(APPVEYOR_REPO_NAME)/releases/download/$(APPVEYOR_REPO_TAG_NAME)/*.tar.gz
+    name:Hello
 
 
