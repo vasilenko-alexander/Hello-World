@@ -27,3 +27,4 @@ build_script:
     - cd build
     - cmake .. %CMAKE_CONFIGURE_FLAGS%     # содержит нужный CMake-генератор
     - cmake --build . %CMAKE_BUILD_FLAGS%  # задаёт конфигурацию Debug/Release
+    - gcc $(APPVEYOR_BUILD_FOLDER)\hello-world.cpp
