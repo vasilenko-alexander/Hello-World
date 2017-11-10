@@ -3,7 +3,7 @@
 
 int main()
 {
-	std::cout << "Hello World" << std::en
+	std::cout << "Hello World" << std::endl;
 
 	return std::cout.fail() ? EXIT_FAILURE : EXIT_SUCCESS;
 }
