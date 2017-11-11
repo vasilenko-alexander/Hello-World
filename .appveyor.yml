@@ -3,17 +3,15 @@ version: '1.0.{build}'
 image: Visual Studio 2015
 
 platform:
-    # будем гонять CI на amd64
     - x64
     
 configuration:
-    # ... и в дебажной, и в релизной конфигурациях ...
     - Debug
     - Release
 
 environment:
     matrix:
-        # ... на 2015
+        # на 2015 VS
         - TOOLCHAIN: msvc14
 
 install:
