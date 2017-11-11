@@ -1,16 +1,13 @@
-dist:     trusty    # используем Ubuntu 14.04 Trusty Tahr (а не 12.02 Precise Pangolin)
-sudo:     required  # используем Virtual Machine (а не Docker container)
+dist:     trusty    # используем Ubuntu 14.04 Trusty Tahr
+sudo:     required  # используем Virtual Machine
+language: cpp      
 
-language: cpp       # на практике разницы между специфичным для C++ окружением
-                    # и, скажем, python -- никакой. Но пусть будет cpp.
 
 os:
-    # будем прогонять CI и на Linux, и на Mac OS X...
     - linux
     - osx
 
 compiler:
-    # ... и с помощью GCC, и Clang
     - gcc
     - clang
 
@@ -21,7 +18,6 @@ env:
 
 matrix:
     exclude:
-        # вручную исключим ненужные элементы из матрицы сборки:
         - os:       osx
           compiler: gcc
 
@@ -40,8 +36,8 @@ script:
 notifications:
     email: false
 
+#Тест
 deploy:
-    # выкладываем tagged-коммиты на GitHub Releases:
     provider:     releases
     file:         <package-file>
     skip_cleanup: true
